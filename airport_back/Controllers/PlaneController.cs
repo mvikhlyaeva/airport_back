@@ -28,10 +28,20 @@ namespace airport_back.Controllers
 
         [HttpGet("planes")]
         [ProducesResponseType(typeof(List<PlaneDomainModel>), StatusCodes.Status200OK)]
-        public List<PlaneDomainModel> GetAllStoreDepartments()
+        public List<PlaneDomainModel> GetAllPlanes()
         {
             var planes = _context.planes.OrderBy(p => p.Id).ToList();
             return _mapper.Map<List<PlaneDomainModel>>(planes);
+        }
+
+        [HttpGet("plane/{planeId}")]
+        [ProducesResponseType(typeof(PlaneDomainModel), StatusCodes.Status200OK)]
+        async public Task<PlaneDomainModel> GetPlane(int planeId)
+        {
+            var plane = await _context.planes.FirstOrDefaultAsync(pl => pl.Id == planeId);
+
+            if (plane == null) throw new Exception("Самолета не существует");
+            return _mapper.Map<PlaneDomainModel>(plane);
         }
 
         [HttpPost("plane")]

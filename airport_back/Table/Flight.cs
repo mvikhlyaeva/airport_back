@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,7 +8,9 @@ namespace airport_back.Table
 {
     public class Flight
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
+
         public DateTime DepartureTime { get; set; }
         public string DepartureCity { get; set; }
         public string ArrivalCity { get; set; }

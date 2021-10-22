@@ -3,6 +3,7 @@ using airport_back.Table;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,16 @@ namespace airport_back.Controllers
         {
             var pilots = _context.pilots.OrderBy(p => p.Id).ToList();
             return _mapper.Map<List<PilotDomainModel>>(pilots);
+        }
+
+        [HttpGet("pilot/{pilotId}")]
+        [ProducesResponseType(typeof(PilotDomainModel), StatusCodes.Status200OK)]
+        async public Task<PilotDomainModel> Getpilot(int pilotId)
+        {
+            var pilot = await _context.pilots.FirstOrDefaultAsync(pl => pl.Id == pilotId);
+
+            if (pilot == null) throw new Exception("Пилота не существует");
+            return _mapper.Map<PilotDomainModel>(pilot);
         }
 
         [HttpPost("pilot")]

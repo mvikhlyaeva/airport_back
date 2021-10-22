@@ -13,23 +13,8 @@ namespace airport_back
 {
     public class Startup
     {
-        //public Startup(IConfiguration configuration)
-        //{
-        //    Configuration = configuration;
-        //}
-
-        // public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<ApplicationContext>(options => options
-            //    .UseNpgsql("Host=localhost;Port=5433;Database=usersdb;Username=postgres;Password=Qwert6789",
-            //        builder => builder.MigrationsAssembly(typeof(ApplicationContext).Assembly.GetName().Name)));
-
-            // получаем строку подключения из файла конфигурации
-            //string connection = Configuration.GetConnectionString("DefaultConnection");
-            // добавляем контекст MobileContext в качестве сервиса в приложение
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=airportdb;Trusted_Connection=True;"));
 
@@ -49,6 +34,11 @@ namespace airport_back
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationContext context)
         {
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
+
+            //app.UseCors(builder => builder.WithOrigins("http://localhost:4200"));
 
             if (env.IsDevelopment())
             {
