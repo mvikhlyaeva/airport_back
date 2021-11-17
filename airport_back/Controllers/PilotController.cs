@@ -70,18 +70,19 @@ namespace airport_back.Controllers
 
         [HttpDelete("pilot/{pilotId}")]
         [ProducesResponseType(typeof(PilotDomainModel), StatusCodes.Status200OK)]
-        public List<Plane> DeleteStoreDepartments(int planeId)
+        public async Task<Pilot> DeleteStoreDepartments(int pilotId)
         {
-            var plane = _context.planes.ToList();
-            //   .Include(pl => pl.Flights).FirstOrDefaultAsync(pl => pl.Id == planeId);
-            //if (plane == null)
-            //    throw new Exception("Ошибка! Отсутсвует такая запись в бд");
-            //if (plane.Flights.Any())
-            //    throw new Exception("Ошибка! У данной записи присутствуют зависимости");
+            var pilot = await _context.pilots.Include(pl => pl.Flights)
+                            .FirstOrDefaultAsync(pl => pl.Id == pilotId);
 
-            //_context.planes.Remove(plane);
-            //await _context.SaveChangesAsync(cancellationToken);
-            return plane;
+            if (pilot == null)
+                throw new Exception("Ошибка! Отсутсвует такая запись в бд");
+            if (pilot.Flights.Any())
+                throw new Exception("Ошибка! У пилота есть зависимые рейсы!");
+
+            _context.pilots.Remove(pilot);
+            await _context.SaveChangesAsync();
+            return pilot;
         }
     }
 }

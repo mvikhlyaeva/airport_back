@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,6 +21,15 @@ namespace airport_back
         {
             // Database.EnsureDeleted();
             //Database.EnsureCreated();
+            //SqlConnectionFactory defaultFactory =
+            //    new SqlConnectionFactory("Server=(localdb)\\MSSQLLocalDB;User=user1;Password=123;");
+
+            //this.SetDefaultConnectionFactory(defaultFactory);
+        }
+
+        private void SetDefaultConnectionFactory(SqlConnectionFactory defaultFactory)
+        {
+            throw new NotImplementedException();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

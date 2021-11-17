@@ -16,7 +16,11 @@ namespace airport_back
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationContext>(options =>
-                options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=airportdb;Trusted_Connection=True;"));
+                options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Initial Catalog = airportdb;Integrated Security = false;User ID = user1;Password =123"));
+
+            //"Database=airportdb;" +
+            //"Trusted_Connection=True;"
+            // ));
 
             services.AddCors();
 
@@ -34,11 +38,6 @@ namespace airport_back
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationContext context)
         {
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
-            //app.UseDefaultFiles();
-            //app.UseStaticFiles();
-
-            //app.UseCors(builder => builder.WithOrigins("http://localhost:4200"));
 
             if (env.IsDevelopment())
             {
@@ -69,10 +68,10 @@ namespace airport_back
                 endpoints.MapControllers();
             });
 
-            if (context.Database.GetPendingMigrations().Any())
-            {
-                context.Database.Migrate();
-            }
+            //if (context.Database.GetPendingMigrations().Any())
+            //{
+            //    context.Database.Migrate();
+            //}
         }
     }
 }
