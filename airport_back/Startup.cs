@@ -16,7 +16,9 @@ namespace airport_back
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationContext>(options =>
-                options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Initial Catalog = airportdb;Integrated Security = false;User ID = user1;Password =123"));
+                   //options.UseSqlServer("Server=DESKTOP-I3H7JJM;Database= airportdb; Trusted_Connection = true;"));
+            options.UseSqlServer("Server=DESKTOP-I3H7JJM;Initial Catalog = airportdb;Trusted_Connection = true;Integrated Security = false;User ID = mary;Password =123"));
+            //options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Initial Catalog = airportdb;Integrated Security = false;User ID = user1;Password =123"));
 
             //"Database=airportdb;" +
             //"Trusted_Connection=True;"
