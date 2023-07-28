@@ -9,20 +9,28 @@ using Microsoft.Extensions.Logging;
 using System.Configuration;
 using System.Linq;
 
+
 namespace airport_back
 {
+    public class Login
+    {
+        public string name  { get; set; }
+    }
     public class Startup
     {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+        public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationContext>(options =>
-                   //options.UseSqlServer("Server=DESKTOP-I3H7JJM;Database= airportdb; Trusted_Connection = true;"));
-            options.UseSqlServer("Server=DESKTOP-I3H7JJM;Initial Catalog = airportdb;Trusted_Connection = true;Integrated Security = false;User ID = mary;Password =123"));
-            //options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Initial Catalog = airportdb;Integrated Security = false;User ID = user1;Password =123"));
 
-            //"Database=airportdb;" +
-            //"Trusted_Connection=True;"
-            // ));
+            services.AddDbContext<ApplicationContext>(options =>
+               options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database= airportdb1; Trusted_Connection = true;"));
+            //options.UseSqlServer("Server=DESKTOP-I3H7JJM;Initial Catalog = airportdb;Trusted_Connection = true;Integrated Security = false;User ID = mary;Password =123"));
+            //options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Initial Catalog = airportdb;Integrated Security = false;User ID = user1;Password =123"));
+            //options.UseSqlServer($"{Configuration.GetConnectionString("BloggingDatabase")}User ID = mary;Password =123"));
 
             services.AddCors();
 
@@ -75,5 +83,6 @@ namespace airport_back
             //    context.Database.Migrate();
             //}
         }
+
     }
 }

@@ -92,3 +92,8 @@ C:\Users\Acer\Documents\GitHub\airport_back\airport_back\obj\Debug\net5.0\airpor
 C:\Users\Acer\Documents\GitHub\airport_back\airport_back\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Acer\Documents\GitHub\airport_back\airport_back\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Acer\Documents\GitHub\airport_back\airport_back\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Users\Acer\Documents\GitHub\airport_back\airport_back\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Acer\Documents\GitHub\airport_back\airport_back\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Acer\Documents\GitHub\airport_back\airport_back\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Acer\Documents\GitHub\airport_back\airport_back\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Acer\Documents\GitHub\airport_back\airport_back\bin\Debug\net5.0\config.json

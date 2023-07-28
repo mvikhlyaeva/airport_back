@@ -1,0 +1,27 @@
+[
+  {
+    "name": "mary123",
+    "dbconnection": "Server=WIN-78SVS04SMUK;Initial Catalog = airportdb;Integrated Security = false;User ID = mary;Password =123"
+  },
+    {
+    "name": "mary1123",
+    "dbconnection": "Server=WIN-78SVS04SMUK;Initial Catalog = airportdb;Trusted_Connection = true;Integrated Security = false;User ID = mary1;Password =123"
+  },
+  {
+    "name": "user1123",
+    "dbconnection": "Server=(localdb)\\MSSQLLocalDB;Initial Catalog = airportdb;Integrated Security = false;User ID = user1;Password =123"
+  },
+  {
+    "name": "user2123",
+    "dbconnection": "Server=(localdb)\\MSSQLLocalDB;Initial Catalog = airportdb;Integrated Security = false;User ID = user2;Password =123"
+  },
+  {
+    "name": "user3123",
+    "dbconnection": "Server=(localdb)\\MSSQLLocalDB;Initial Catalog = airportdb;Integrated Security = false;User ID = user3;Password =123"
+  },
+  {
+    "name": "user4123",
+    "dbconnection": "Server=(localdb)\\MSSQLLocalDB;Initial Catalog = airportdb;Integrated Security = false;User ID = user4;Password =123"
+  }
+]
+
